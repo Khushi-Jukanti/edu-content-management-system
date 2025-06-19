@@ -6,6 +6,10 @@ import { useAuth } from '@/contexts/AuthContext';
 // Navigation items
 const navItems = [
   { title: 'Dashboard', path: '/admin/dashboard', icon: 'layout-dashboard' },
+  { title: 'Schools', path: '/admin/schools', icon: 'building' },
+  { title: 'School Admins', path: '/admin/school-admins', icon: 'user-check' },
+  { title: 'Teachers', path: '/admin/teachers', icon: 'graduation-cap' },
+  { title: 'User Actions', path: '/admin/user-actions', icon: 'activity' },
   { title: 'Courses', path: '/admin/courses', icon: 'book-open' },
   { title: 'Classes', path: '/admin/classes', icon: 'users' },
   { title: 'Subjects', path: '/admin/subjects', icon: 'file-text' },

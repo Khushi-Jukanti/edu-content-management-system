@@ -6,12 +6,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 const Dashboard: React.FC = () => {
   // Dashboard stats (these would typically come from an API)
   const stats = [
+    { title: 'Schools', count: 12, path: '/admin/schools', color: 'bg-blue-500' },
+    { title: 'School Admins', count: 15, path: '/admin/school-admins', color: 'bg-indigo-500' },
+    { title: 'Teachers', count: 240, path: '/admin/teachers', color: 'bg-cyan-500' },
     { title: 'Courses', count: 8, path: '/admin/courses', color: 'bg-blue-500' },
     { title: 'Classes', count: 24, path: '/admin/classes', color: 'bg-green-500' },
     { title: 'Subjects', count: 42, path: '/admin/subjects', color: 'bg-orange-500' },
     { title: 'Chapters', count: 156, path: '/admin/chapters', color: 'bg-purple-500' },
     { title: 'Topics', count: 320, path: '/admin/topics', color: 'bg-pink-500' },
     { title: 'Videos', count: 560, path: '/admin/videos', color: 'bg-red-500' },
+    { title: 'User Actions', count: 1250, path: '/admin/user-actions', color: 'bg-gray-500' },
   ];
 
   return (
