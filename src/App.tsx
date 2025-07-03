@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { AdminLayout } from "@/components/admin/AdminLayout";
+import { SchoolAdminLayout } from "@/components/schooladmin/SchoolAdminLayout";
 
 // Regular routes
 import Index from "./pages/Index";
@@ -25,6 +26,11 @@ import Subjects from "./pages/admin/Subjects";
 import Chapters from "./pages/admin/Chapters";
 import Topics from "./pages/admin/Topics";
 import Videos from "./pages/admin/Videos";
+
+// School Admin routes
+import SchoolAdminDashboard from "./pages/schooladmin/Dashboard";
+import SchoolAdminTeachers from "./pages/schooladmin/Teachers";
+import SchoolAdminUserActions from "./pages/schooladmin/UserActions";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +62,13 @@ const App = () => (
               <Route path="chapters" element={<Chapters />} />
               <Route path="topics" element={<Topics />} />
               <Route path="videos" element={<Videos />} />
+            </Route>
+            
+            {/* Protected school admin routes */}
+            <Route path="/schooladmin" element={<SchoolAdminLayout />}>
+              <Route path="dashboard" element={<SchoolAdminDashboard />} />
+              <Route path="teachers" element={<SchoolAdminTeachers />} />
+              <Route path="user-actions" element={<SchoolAdminUserActions />} />
             </Route>
             
             {/* Catch-all route */}

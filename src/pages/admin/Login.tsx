@@ -27,7 +27,13 @@ const Login: React.FC = () => {
     try {
       const success = await login(username, password);
       if (success) {
-        navigate('/admin/dashboard');
+        // Redirect based on role - this will be handled by the auth context and routing
+        const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
+        if (storedUser.role === 'admin') {
+          navigate('/admin/dashboard');
+        } else if (storedUser.role === 'schooladmin') {
+          navigate('/schooladmin/dashboard');
+        }
       } else {
         setError('Invalid username or password');
       }
@@ -41,9 +47,9 @@ const Login: React.FC = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">Admin Login</CardTitle>
+          <CardTitle className="text-2xl font-bold text-center">Login</CardTitle>
           <CardDescription className="text-center">
-            Enter your credentials to access the admin dashboard
+            Enter your credentials to access the dashboard
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -92,9 +98,11 @@ const Login: React.FC = () => {
           </form>
         </CardContent>
         <CardFooter className="justify-center">
-          <p className="text-sm text-gray-500">
-            Default credentials: admin / admin123
-          </p>
+          <div className="text-sm text-gray-500 space-y-1">
+            <p>Super Admin: admin / admin123</p>
+            <p>School Admin: schooladmin / school123</p>
+            <p>Teacher: teacher / teacher123</p>
+          </div>
         </CardFooter>
       </Card>
     </div>

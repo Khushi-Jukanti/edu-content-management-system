@@ -2,9 +2,9 @@
 import React from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
-import { AdminSidebar } from './AdminSidebar';
+import { SchoolAdminSidebar } from './SchoolAdminSidebar';
 
-export const AdminLayout: React.FC = () => {
+export const SchoolAdminLayout: React.FC = () => {
   const { user, isLoading } = useAuth();
   
   // Show loading state
@@ -16,15 +16,15 @@ export const AdminLayout: React.FC = () => {
     );
   }
   
-  // Redirect to login if not authenticated or not an admin
-  if (!user || user.role !== 'admin') {
+  // Redirect to login if not authenticated or not a school admin
+  if (!user || user.role !== 'schooladmin') {
     return <Navigate to="/admin/login" replace />;
   }
   
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
-      <AdminSidebar />
+      <SchoolAdminSidebar />
       
       {/* Main Content */}
       <div className="flex-1 overflow-auto">
